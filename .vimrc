@@ -60,7 +60,13 @@ set statusline+=%F
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Show hidden files in NERDTree
+let NERDTreeShowLineNumbers=1
 let NERDTreeShowHidden=1
+let g:NERDTreeDirArrowExpandable = '►'
+let g:NERDTreeDirArrowCollapsible = '▼'
+let NERDTreeMinimalUI = 1
+let g:NERDTreeWinSize=38
+
 
 " Syntastic Configurations
 set statusline+=%#warningmsg#

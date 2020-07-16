@@ -69,7 +69,7 @@ zle -N zle-keymap-select
 
 setopt autocd
 
-# Aliases
+# bare git repo alias for dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 

@@ -12,7 +12,32 @@ SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
 # Set whale prompt
-export PROMPT="🐳 "
+#export PROMPT="🐳 "
+
+# Powerline
+# The list of segments shown on the left
+typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
+typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
+  # =========================[ Line #1 ]=========================
+  #os_icon                 # os identifier
+  dir                     # current directory
+  vcs                     # git status
+  # =========================[ Line #2 ]=========================
+)
+
+typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
+  # =========================[ Line #1 ]=========================
+  status                  # exit code of the last command
+  command_execution_time  # duration of the last commend
+  background_jobs         # presence of background jobs
+  pyenv                   # python environment
+  go_version              # go version
+  root_indicator          # root prompt
+  time                    # current time
+  # =========================[ Line #1 ]=========================
+)
+typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+typeset -g POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S | %d.%m.%y}"
 
 export CLICOLOR=1
 export LSCOLORS=exfxcxdxbxegedabagacad;
@@ -87,6 +112,9 @@ source ~/scripts/command-not-found/command-not-found.plugin.zsh
 
 # auto suggestions
 source ~/scripts/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Powerline9k
+source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
 
 # pfetch
 $HOME/scripts/pfetch

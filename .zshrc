@@ -69,21 +69,27 @@ zle -N zle-keymap-select
 
 setopt autocd
 
+# ALIAS
+alias ls="exa"
+
 # bare git repo alias for dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 
 # Load zsh-syntax-highlighting
-source ~/.scripts/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/scripts/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Suggest aliases for commands
-source ~/.scripts/zsh-you-should-use/you-should-use.plugin.zsh
+source ~/scripts/zsh-you-should-use/you-should-use.plugin.zsh
 
 # Search repos for programs that can't be found
-source ~/.scripts/command-not-found/command-not-found.plugin.zsh
+source ~/scripts/command-not-found/command-not-found.plugin.zsh
 
 # auto suggestions
-source ~/.scripts/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/scripts/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# pfetch
+$HOME/scripts/pfetch
 
 test -e /Users/mikev1963/.iterm2_shell_integration.zsh && source /Users/mikev1963/.iterm2_shell_integration.zsh || true
 

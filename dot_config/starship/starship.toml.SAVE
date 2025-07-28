@@ -1,0 +1,88 @@
+format = """\
+[](bg:#030B16 fg:#7DF9AA)\
+[󰀵 ](bg:#7DF9AA fg:#090c0c)\
+[](fg:#7DF9AA bg:#1C3A5E)\
+$time\
+[](fg:#1C3A5E bg:#3B76F0)\
+$directory\
+[](fg:#3B76F0 bg:#FCF392)\
+$git_branch\
+$git_status\
+$git_metrics\
+[](fg:#FCF392 bg:#030B16)\
+$python\
+$golang\
+[](fg:#1C3A5E bg:#3B76F0)\
+$docker_context\
+[](fg:#1C3A5E bg:#3B76F0)\
+$line_break$character"""
+
+[directory]
+format = "[ ﱮ $path ]($style)"
+style = "fg:#E4E4E4 bg:#3B76F0"
+
+[docker_context]
+symbol = " "
+format = "[$symbol$context]($style) "
+style = "fg:#E4E4E4 bg:#3B76F0"
+only_with_files = true
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+detect_folders = []
+disabled = false
+
+[git_branch]
+format = '[ $symbol$branch(:$remote_branch) ]($style)'
+symbol = "  "
+style = "fg:#1C3A5E bg:#FCF392"
+
+[git_status]
+format = '[$all_status]($style)'
+style = "fg:#1C3A5E bg:#FCF392"
+
+[git_metrics]
+format = "([+$added]($added_style))[]($added_style)"
+added_style = "fg:#1C3A5E bg:#FCF392"
+deleted_style = "fg:bright-red bg:235"
+disabled = false
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](#E84D44)"
+
+#[character]
+#success_symbol = '[ ➜](bold green) '
+#error_symbol = '[ ✗](#E84D44) '
+
+[memory_usage]
+symbol = " "
+
+[package]
+symbol = " "
+
+[python]
+symbol = " "
+style = "fg:#1C3A5E bg:#FCF392"
+#pyenv_version_name = true
+format = '[${symbol}python (${version} )(\($virtualenv\) )]($style)'
+pyenv_prefix = "venv "
+python_binary = ["./venv/bin/python", "python", "python3"]
+detect_extensions = ['py', 'ipynb']
+version_format = "v${raw}"
+detect_files = []
+
+[golang]
+symbol = ""
+style = "fg:#1C3A5E bg:#FCF392"
+format = '[$symbol($version )($mod_version )]($style)'
+
+[nodejs]
+format = "[ Node.js $version](bold green) "
+detect_files = ["package.json", ".node-version"]
+detect_folders = ["node_modules"]
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Code" = "󰲋 "

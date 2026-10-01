@@ -1,35 +1,19 @@
-#
-# .zshrc
-#
-export ZDOTDIR="$HOME"
-# options
-setopt append_history
-setopt share_history
-setopt hist_ignore_dups
-setopt hist_expire_dups_first
-setopt hist_find_no_dups
-setopt hist_reduce_blanks
-setopt no_beep
-setopt inc_append_history
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
 
-# env
-source "$ZDOTDIR/.zshenv"
+# Load omarchy-zsh configuration
+if [[ -d ~/.local/share/omarchy/default/zsh/conf.d ]]; then
+  for config in ~/.local/share/omarchy/default/zsh/conf.d/*.zsh; do
+    [[ -f "$config" ]] && source "$config"
+  done
+fi
 
-# plugins & plugin manager
-source "$ZDOTDIR/plugins.zsh"
+# Load omarchy-zsh functions and aliases
+if [[ -d ~/.local/share/omarchy/default/zsh/functions ]]; then
+  for func in ~/.local/share/omarchy/default/zsh/functions/*.zsh; do
+    [[ -f "$func" ]] && source "$func"
+  done
+fi
 
-# aliases
-source "$ZDOTDIR/aliases.zsh"
-
-# fzf
-source "$ZDOTDIR/fzf.zsh"
-
-# history
-HISTFILE=${ZDOTDIR}/.zsh_history
-HISTSIZE=1000000
-SAVEHIST=1000000
-bindkey '^K' up-line-or-history
-bindkey '^J' down-line-or-history
-HISTDUP=erase              # Remove duplicates when loading history
-
+# Add your own customizations below
 

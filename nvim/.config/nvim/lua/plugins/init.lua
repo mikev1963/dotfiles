@@ -1,0 +1,8 @@
+require("plugins.catppuccin")
+require("plugins.cinnamon")
+require("plugins.telescope")
+require("plugins.lsp")
+require("plugins.snacks")
+require("plugins.which-key")
+require("plugins.treesitter")
+require("plugins.lualine")
